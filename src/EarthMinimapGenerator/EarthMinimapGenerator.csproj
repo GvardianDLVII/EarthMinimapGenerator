@@ -7,6 +7,7 @@
     <Authors>GvardianDLVII</Authors>
     <Company>InsideEarth Operations</Company>
     <PackageTags>ieo InsideEarth earth2150 themoonproject lostsouls zlib</PackageTags>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
