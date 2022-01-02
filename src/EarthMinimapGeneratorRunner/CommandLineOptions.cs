@@ -14,7 +14,7 @@ namespace Ieo.EarthMinimapGeneratorRunner
       public string InputPath { get; set; }
       [Option('o', Required = true, HelpText = "path to output file, or output directory")]
       public string OutputPath { get; set; }
-      [Option(Required = false, Default = 2, HelpText = "Determines output image size")]
+      [Option(Required = false, Default = 2, HelpText = "Determines output image dimensions scale")]
       public int Scale { get; set; }
       [Option(Required = false, HelpText = "If specified, starting positions will not be marked with circled numbers")]
       public bool HideStartingPositions { get; set; }
