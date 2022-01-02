@@ -1,6 +1,6 @@
 ﻿using CommandLine;
 
-namespace SampleRunner
+namespace Ieo.EarthMinimapGeneratorRunner
 {
    public class CommandLineOptions
    {

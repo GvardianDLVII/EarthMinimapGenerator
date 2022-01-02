@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace LevelMinimapGenerator
+namespace Ieo.EarthMinimapGenerator
 {
    internal static class Colors
    {

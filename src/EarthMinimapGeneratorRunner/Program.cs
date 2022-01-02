@@ -1,11 +1,11 @@
 ﻿using CommandLine;
 using Ieo.EarthFileApi.Files;
-using LevelMinimapGenerator;
+using Ieo.EarthMinimapGenerator;
 using System;
 using System.IO;
 using System.Linq;
 
-namespace SampleRunner
+namespace Ieo.EarthMinimapGeneratorRunner
 {
    class Program
    {

@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 
-namespace LevelMinimapGenerator
+namespace Ieo.EarthMinimapGenerator
 {
    public static class MinimapGenerator
    {

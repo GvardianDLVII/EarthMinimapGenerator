@@ -1,4 +1,4 @@
-﻿namespace LevelMinimapGenerator
+﻿namespace Ieo.EarthMinimapGenerator
 {
    public class MinimapOptions
    {
