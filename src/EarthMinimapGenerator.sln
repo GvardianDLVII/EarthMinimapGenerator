@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31911.196
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EarthMinimapGenerator", "EarthMinimapGenerator\EarthMinimapGenerator.csproj", "{F795C2F5-69FF-490C-9A8A-B06007660DD9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EarthMinimapGeneratorRunner", "EarthMinimapGeneratorRunner\EarthMinimapGeneratorRunner.csproj", "{BD105F6B-A651-4D76-AEE5-B429ADCB68D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthMinimapGenerator.Tests", "EarthMinimapGenerator.Tests\EarthMinimapGenerator.Tests.csproj", "{FC1EDB20-945E-4BC0-8A19-8E61A5790F48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BD105F6B-A651-4D76-AEE5-B429ADCB68D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD105F6B-A651-4D76-AEE5-B429ADCB68D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD105F6B-A651-4D76-AEE5-B429ADCB68D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC1EDB20-945E-4BC0-8A19-8E61A5790F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1EDB20-945E-4BC0-8A19-8E61A5790F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1EDB20-945E-4BC0-8A19-8E61A5790F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1EDB20-945E-4BC0-8A19-8E61A5790F48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

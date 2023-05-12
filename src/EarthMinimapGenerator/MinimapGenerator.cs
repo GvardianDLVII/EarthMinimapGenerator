@@ -26,6 +26,17 @@ namespace Ieo.EarthMinimapGenerator
 
                var waterColorIndex = waterHeight > terrainHeight ? Math.Min((waterHeight - terrainHeight) / 16, 0x7f) : 0;
 
+               bool isPassable = true;
+               const int passableThreshold = 0xb3;
+
+               if (x > 0)
+                  isPassable &= Math.Abs(lndFile.Data.TerrainHeight[y * lndFile.Data.MapWidth + x - 1] - terrainHeight) < passableThreshold;
+               if (x < lndFile.Data.MapWidth - 1)
+                  isPassable &= Math.Abs(lndFile.Data.TerrainHeight[y * lndFile.Data.MapWidth + x + 1] - terrainHeight) < passableThreshold;
+               if (y > 0)
+                  isPassable &= Math.Abs(lndFile.Data.TerrainHeight[(y - 1) * lndFile.Data.MapWidth + x] - terrainHeight) < passableThreshold;
+               if (y < lndFile.Data.MapHeight - 1)
+                  isPassable &= Math.Abs(lndFile.Data.TerrainHeight[(y + 1) * lndFile.Data.MapWidth + x] - terrainHeight) < passableThreshold;
 
                var color = resources > 0x70
                   ? Colors.ResourceColor
@@ -33,7 +44,7 @@ namespace Ieo.EarthMinimapGenerator
                      ? misFile.Data.WaterType == WaterType.Lava
                         ? Colors.LavaColor
                         : Colors.WaterColors[waterColorIndex]
-                     : TerrainHeightToColor(terrainHeight - lndFile.Data.LevelWaterHeight);
+                     : TerrainHeightToColor(terrainHeight - lndFile.Data.LevelWaterHeight, isPassable);
 
                bitmap.SetPixel(x, y, color);
             }
@@ -68,12 +79,42 @@ namespace Ieo.EarthMinimapGenerator
          }
          g.Flush();
       }
+      private static Color TerrainHeightToColor(int terrainHeight, bool isPassable = false)
+         => TerrainHeightToColorPassable(isPassable);
+         //=> TerrainHeightToColorOriginal(terrainHeight);
 
-      private static Color TerrainHeightToColor(int terrainHeight)
+      private static Color TerrainHeightToColorOriginal(int terrainHeight)
       {
          if (terrainHeight >= 0)
             return Colors.SpringTerPosColors[Math.Min(terrainHeight / 16, 0x7f)];
          return Colors.SpringTerNegColors[Math.Min(-terrainHeight / 16, 0x7f)];
+      }
+
+      private static Color TerrainHeightToColorGrayscale(int terrainHeight)
+      {
+         Color baseColor = terrainHeight >= 0
+            ? Colors.SpringTerPosColors[Math.Min(terrainHeight / 16, 0x7f)]
+            : Colors.SpringTerNegColors[Math.Min(-terrainHeight / 16, 0x7f)];
+
+         var colorValue = ((int)baseColor.R + (int)baseColor.G + (int)baseColor.B) / 3;
+         return Color.FromArgb(colorValue, colorValue, colorValue);
+      }
+
+      private static Color TerrainHeightToColorGrayscaleInverted(int terrainHeight)
+      {
+         Color baseColor = terrainHeight >= 0
+            ? Colors.SpringTerPosColors[Math.Min(terrainHeight / 16, 0x7f)]
+            : Colors.SpringTerNegColors[Math.Min(-terrainHeight / 16, 0x7f)];
+
+         var colorValue = 256 - ((int)baseColor.R + (int)baseColor.G + (int)baseColor.B) / 3;
+         return Color.FromArgb(colorValue, colorValue, colorValue);
+      }
+
+      private static Color TerrainHeightToColorPassable(bool isPassable)
+      {
+         return isPassable 
+            ? Color.Gray
+            : Color.Black;
       }
    }
 }
